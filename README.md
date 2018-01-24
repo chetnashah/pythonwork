@@ -49,6 +49,7 @@ run myfile.py and output results in the current cell
 %load myfile.py
 ```
 load "import" myfile.py into the current cell
+**Note** : Load just populates the cell, does not execute it, to do that use %run
 
 #### For more magic and help
 ```
