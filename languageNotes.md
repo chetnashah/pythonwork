@@ -54,6 +54,67 @@ test_var_args(42, 'hi', True, 'eggs', 'foo', name="John", last="Doe")
 
 ### Python Data Model
 
+Also refer http://effbot.org/zone/python-list.htm
+
+### Copying data structures in python
+
+In python, = is only used for reference assignment, no sort of value copying takes place using =, unless the value is a primitive value.
+
+Use following:
+``` py
+import copy
+
+newobj = copy.copy(oldobj) # shallow copy
+newobj = copy.deepcopy(oldobj) # deep (recursive) copy
+```
+
+Some objects can be copied more easily.
+* Dictionaries have a copy method:
+``` py
+newdict = olddict.copy()
+```
+
+* Sequences can be copied by slicing:
+``` py
+new_list = L[:] # create a copy of L
+```
+List comprehensions, and functions like map, filter etc also return new lists.
+
+You can also use the list, tuple, dict, and set functions to copy the corresponding objects, and to convert between different sequence types:
+``` py
+new_list = list(L) # copy
+new_dict = dict(olddict) # copy
+
+new_set = set(L) # convert list to set
+new_tuple = tuple(L) # convert list to tuple
+```
+
+#### Python Tuples
+
+Python tuples are product types indexed by numbers only.
+e.g.
+``` py
+tu = ("hey", 1, True)
+t2 = "hi", 3, False   # can create tuples without parens as long as commas
+print tu[1]
+
+tu[0] = 22 # assignment not possible, crashes, they are immutable in a sense that crash happens on assignment, instead of returning of a new tuple etc.
+
+newt = tu # newt is reference to tu, no deep copy
+
+print tu
+print newt
+
+# tuples support destructuring/unpacking
+(x, y, z) = newt
+print x, y, z
+
+#tuples support slicing, returning tuples
+kk = tu[0:2]
+
+
+```
+
 ### Inheritance in Python
 
 Unlike Java, Python does have multiple inheritance.
