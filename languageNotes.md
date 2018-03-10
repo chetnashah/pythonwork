@@ -89,6 +89,16 @@ new_set = set(L) # convert list to set
 new_tuple = tuple(L) # convert list to tuple
 ```
 
+### Python Lists
+
+Useful methods :
+
+* `lst.append(item)` : appends the item to lst by mutating it. returns None.
+
+* `+` : concatenates two lists and returns a new one. e.g. `l1 = lst + [item]`
+
+
+
 #### Python Tuples
 
 Python tuples are product types indexed by numbers only.
